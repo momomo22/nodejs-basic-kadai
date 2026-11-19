@@ -1,8 +1,3 @@
-// 指定した時間だけ待機する関数
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 // 外部データを取得する関数
 async function fetchData() {
   console.log('ユーザーデータの取得を開始します。');
@@ -12,9 +7,6 @@ async function fetchData() {
   try {
     const response = await fetch(url);
     const data = await response.json();
-
-    // ダミーメッセージの途中で結果が表示されるように少し待機
-    await delay(450);
 
     console.log('データ取得が完了しました。取得件数：', data.length);
     console.log('ユーザー一覧：');
@@ -40,7 +32,7 @@ const interval = setInterval(() => {
   console.log(`別の処理を実行中... ${count}`);
   count++;
 
-  if (count > 10) {
+  if (count > 3) {
     clearInterval(interval);
   }
 }, 100);
