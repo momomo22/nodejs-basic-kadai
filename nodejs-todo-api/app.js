@@ -23,7 +23,7 @@ app.post('/todos', async (req, res) => {
       [title, priority, '未着手']
     );
     // エラーがなければ成功とみなし、201 Createdとデータ情報を返却
-    res.status(201).json({ id: result.insertId, title, priority, stats:'未着手'});
+    res.status(201).json({ id: result.insertId, title, priority, status:'未着手'});
   } catch (err) { // エラー処理
     handleServerError(res, err, 'Todo追加に失敗しました');
   }
